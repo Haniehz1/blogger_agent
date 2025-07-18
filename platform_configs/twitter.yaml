@@ -1,0 +1,25 @@
+platform: twitter
+constraints:
+  max_length: 280
+  hashtag_limit: 3
+  thread_max_tweets: 25
+
+formatting:
+  line_breaks: true
+  emojis: strategic  # Use 1-2 per tweet
+  mentions: "@username format"
+  
+tone_guidelines:
+  preferred: ["conversational", "direct", "engaging"]
+  avoid: ["overly_formal", "academic", "verbose"]
+  
+structure:
+  hook: "Start with attention-grabbing first line"
+  body: "Make your point concisely"
+  cta: "End with question or call-to-action"
+  
+best_practices:
+  - "Break long thoughts into threads"
+  - "Use line breaks for readability"
+  - "Include relevant hashtags"
+  - "Ask questions to drive engagement"

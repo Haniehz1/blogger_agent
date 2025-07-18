@@ -1,0 +1,53 @@
+execution_engine: asyncio
+
+logger:
+  transports: [console, file]
+  level: debug
+  path: "logs/main.jsonl"
+  path_settings:
+    path_pattern: "logs/main-{unique_id}.jsonl"
+    unique_id: "timestamp"
+    timestamp_format: "%Y%m%d_%H%M%S"
+
+mcp:
+  servers:
+    # Content processing server with elicitation
+    content_server:
+      command: "python"
+      args: ["content_server.py"]
+      description: "Content processing server with interactive elicitation"
+      
+    # Document processing server
+    markitdown:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-markitdown"]
+      description: "Convert various file formats to Markdown"
+      
+    # Memory server for voice patterns and content history
+    memory:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-memory"]
+      description: "Knowledge graph-based persistent memory system"
+      
+    # Filesystem access for samples and templates
+    filesystem:
+      command: "npx"
+      args: [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "./content_samples",
+        "./platform_configs",
+        "./voice_patterns",
+        "./output"
+      ]
+      description: "Secure file operations with configurable access"
+      
+    # Web content fetching for research
+    fetch:
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-fetch"]
+      description: "Web content fetching and conversion"
+
+# OpenAI configuration
+openai:
+  default_model: gpt-4o-mini

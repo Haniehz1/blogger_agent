@@ -1,0 +1,24 @@
+platform: linkedin
+constraints:
+  max_length: 3000
+  optimal_length: 1300
+  
+formatting:
+  paragraphs: short  # 1-3 sentences
+  bullet_points: encouraged
+  professional_tone: required
+  
+tone_guidelines:
+  preferred: ["professional", "thoughtful", "industry_expert"]
+  avoid: ["casual_slang", "overly_personal", "controversial"]
+  
+structure:
+  hook: "Personal story or industry insight"
+  body: "Professional insights with examples"
+  cta: "Thought-provoking question"
+  
+best_practices:
+  - "Start with personal story"
+  - "Use industry-relevant hashtags"
+  - "Include professional insights"
+  - "End with networking question"
